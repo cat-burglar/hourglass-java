@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+/*
+ * draws an hourglass depending on user input
+ */
+
+public class HourGlass{
+    static int count = 1;
+    
+   public static void main(String []args) {
+    Scanner in = new Scanner(System.in);
+    System.out.println("Please input number: ");
+    int number = in.nextInt();
+    hg(number);
+      
+   }
+ 
+   public static void hg(int num) {
+    String a = "";
+    a = hourglass(a,num,0);
+    System.out.println(a);
+   }
+     
+    public static String hourglass(String s, int num, int line) {
+      int n = num; 
+      if(line < 0 || num < 0 ) {
+        count = 1;
+        return s;
+      }
+      
+      if(line == num) {
+        count = -1;
+        line--;
+      } else {
+        s += "\n";
+        
+      //draw spaces
+      for(int i = line; i > 0 ; i--) {
+        s += " ";
+        n--;
+      }
+        
+      // draw asterisks
+      while(n > 0) {
+        s += "* ";
+        n--;
+      }
+    }
+    s = hourglass(s,num,line+=count);
+    return s;
+  }
+}
