@@ -6,50 +6,41 @@ import java.util.Scanner;
 
 public class HourGlass{
     static int count = 1;
+    static int numInput;
     
    public static void main(String []args) {
-    Scanner in = new Scanner(System.in);
-    System.out.println("Please input number: ");
-    int number = in.nextInt();
-    hourGlass(number);
-      
-   }
- 
-   public static void hourGlass(int numInput) {
-    String hgString = "";
-    hgString = drawHourGlass(hgString,numInput,0);
-    System.out.println(hgString);
-   }
+   
+    Scanner s = new Scanner(System.in);
+    System.out.println("Enter a number");
      
-    public static String drawHourGlass(String hgString, int numInput, int line) {
-      int n = numInput; 
-      if(line < 0 || numInput < 0 ) {
-        count = 1;
-        return hgString;
-      }
-      
-      if(line == numInput) {
-        count = -1;
-        line--;
-      } else {
-        //System.out.println();
-        hgString += "\n";
-        
-      //draw spaces
-      for(int i = line; i > 0 ; i--) {
-        //System.out.print("");
-        hgString += " ";
-        n--;
-      }
-        
-      // draw asterisks
-      while(numInput > 0) {
-        //System.out.print("*");
-        hgString += "* ";
-        n--;
-      }
+    if(s.hasNextInt()) {
+      numInput = s.nextInt();
     }
-    hgString = drawHourGlass(hgString,numInput,line+=count);
-    return hgString;
+    drawHourGlass(1);  
+   }
+   
+public static void drawHourGlass(int line) {
+    int asterisk = numInput; 
+    if(line < 1 ) {
+      return;
+    } else if(line == numInput) {
+      count = -1;  
+    }
+    
+    //draw spaces
+    for(int i = line; i > 1 ; i--) {
+      System.out.print(" ");
+      asterisk--;
+    }
+
+    // draw asterisks
+    while(asterisk > 0) {
+      System.out.print("* ");
+      asterisk--;   
+    }
+    System.out.println();
+    
+    drawHourGlass(line+=count);
+    return;
   }
 }
