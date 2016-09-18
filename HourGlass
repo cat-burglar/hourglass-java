@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /*
- * draws an hourglass depending on user input
+ * creating an hourglass depending on user input
  */
 
 public class HourGlass{
@@ -11,42 +11,45 @@ public class HourGlass{
     Scanner in = new Scanner(System.in);
     System.out.println("Please input number: ");
     int number = in.nextInt();
-    hg(number);
+    hourGlass(number);
       
    }
  
-   public static void hg(int num) {
-    String a = "";
-    a = hourglass(a,num,0);
-    System.out.println(a);
+   public static void hourGlass(int numInput) {
+    String hgString = "";
+    hgString = drawHourGlass(hgString,numInput,0);
+    System.out.println(hgString);
    }
      
-    public static String hourglass(String s, int num, int line) {
-      int n = num; 
-      if(line < 0 || num < 0 ) {
+    public static String drawHourGlass(String hgString, int numInput, int line) {
+      int n = numInput; 
+      if(line < 0 || numInput < 0 ) {
         count = 1;
-        return s;
+        return hgString;
       }
       
-      if(line == num) {
+      if(line == numInput) {
         count = -1;
         line--;
       } else {
-        s += "\n";
+        //System.out.println();
+        hgString += "\n";
         
       //draw spaces
       for(int i = line; i > 0 ; i--) {
-        s += " ";
+        //System.out.print("");
+        hgString += " ";
         n--;
       }
         
       // draw asterisks
-      while(n > 0) {
-        s += "* ";
+      while(numInput > 0) {
+        //System.out.print("*");
+        hgString += "* ";
         n--;
       }
     }
-    s = hourglass(s,num,line+=count);
-    return s;
+    hgString = drawHourGlass(hgString,numInput,line+=count);
+    return hgString;
   }
 }
