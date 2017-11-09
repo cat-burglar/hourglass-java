@@ -10,10 +10,11 @@ public class HourGlass{
     
    public static void main(String []args) {
    
-    drawHourGlass(LINE,3);  
+   
+    drawHourGlass(3);  
    }
    
-public static void drawHourGlass(int LINE, int numInput) {
+public static void drawHourGlass(int numInput) {
     int asterisk = numInput; 
     if(LINE < 1 ) {
       return;
@@ -33,8 +34,8 @@ public static void drawHourGlass(int LINE, int numInput) {
       asterisk--;   
     }
     System.out.println();
-    
-    drawHourGlass(LINE+=count,numInput);
+    LINE+=count;
+    drawHourGlass(numInput);
     return;
   }
 }
