@@ -6,29 +6,23 @@ import java.util.Scanner;
 
 public class HourGlass{
     static int count = 1;
-    static int numInput;
+    static int LINE = 1;
     
    public static void main(String []args) {
    
-    Scanner s = new Scanner(System.in);
-    System.out.println("Enter a number");
-     
-    if(s.hasNextInt()) {
-      numInput = s.nextInt();
-    }
-    drawHourGlass(1);  
+    drawHourGlass(LINE,3);  
    }
    
-public static void drawHourGlass(int line) {
+public static void drawHourGlass(int LINE, int numInput) {
     int asterisk = numInput; 
-    if(line < 1 ) {
+    if(LINE < 1 ) {
       return;
-    } else if(line == numInput) {
+    } else if(LINE == numInput) {
       count = -1;  
     }
     
     //draw spaces
-    for(int i = line; i > 1 ; i--) {
+    for(int i = LINE; i > 1 ; i--) {
       System.out.print(" ");
       asterisk--;
     }
@@ -40,7 +34,7 @@ public static void drawHourGlass(int line) {
     }
     System.out.println();
     
-    drawHourGlass(line+=count);
+    drawHourGlass(LINE+=count,numInput);
     return;
   }
 }
