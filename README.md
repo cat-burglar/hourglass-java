@@ -1,4 +1,6 @@
 # hourglass-java
 
-making an hourglass based on user input 
+java solution for the hourglass problem
+
+
 
