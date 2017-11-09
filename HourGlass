@@ -9,8 +9,7 @@ public class HourGlass{
     static int LINE = 1;
     
    public static void main(String []args) {
-   
-   
+    
     drawHourGlass(3);  
    }
    
