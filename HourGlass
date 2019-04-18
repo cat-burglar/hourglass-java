@@ -7,10 +7,13 @@ import java.util.Scanner;
 public class HourGlass{
     static int count = 1;
     static int LINE = 1;
+    private static Scanner sc;
     
-   public static void main(String []args) {
-    
-    drawHourGlass(3);  
+public static void main(String []args) {
+	System.out.println("Enter number: ");
+    sc = new Scanner(System.in);
+    int i = sc.nextInt();
+    drawHourGlass(i);  
    }
    
 public static void drawHourGlass(int numInput) {
